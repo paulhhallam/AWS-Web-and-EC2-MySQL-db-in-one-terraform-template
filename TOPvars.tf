@@ -52,6 +52,6 @@ variable "TOPvpcsubn-pri-cidr" {
   }
 
 variable "TOPDnsZoneName" {
-  default = "moluccan.int"
+  default = "NET.int"
   description = "the internal dns name"
   }

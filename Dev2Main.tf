@@ -42,7 +42,7 @@ resource "aws_vpc_dhcp_options_association" "dns_resolver" {
 resource "aws_route53_zone" "main" {
   name    = "${var.TOPDnsZoneName}"
   vpc_id  = "${aws_vpc.DevEc2DbVpc.id}"
-  comment = "Managed by PHH"
+  comment = "Managed by ME"
 }
 
 resource "aws_route53_record" "database" {
@@ -87,7 +87,7 @@ data "aws_availability_zones" "available" {}
 resource "aws_internet_gateway" "gw" {
   vpc_id = "${aws_vpc.DevEc2DbVpc.id}"
   tags {
-    Name = "internet gw moluccan generated"
+    Name = "internet gw MY generated"
   }
 }
 resource "aws_network_acl" "all" {
