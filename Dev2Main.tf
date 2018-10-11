@@ -22,9 +22,11 @@ resource "aws_instance" "database" {
   /usr/bin/mysqladmin -u root password 'secret'
   mysql -u root -psecret -e "create user 'root'@'%' identified by 'secret';" mysql
   mysql -u root -psecret -e 'CREATE TABLE mytable (mycol varchar(255));' test
-  mysql -u root -psecret -e "INSERT INTO mytable (mycol) values ('linuxacademythebest') ;" test
+  mysql -u root -psecret -e "INSERT INTO mytable (mycol) values ('MyValues') ;" test
 HEREDOC
-}resource "aws_vpc_dhcp_options" "mydhcp" {
+}
+
+resource "aws_vpc_dhcp_options" "mydhcp" {
   domain_name = "${var.TOPDnsZoneName}"
   domain_name_servers = ["AmazonProvidedDNS"]
   tags {
@@ -71,7 +73,7 @@ resource "aws_instance" "webphpapp" {
   service httpd start
   chkconfig httpd on
   echo "<?php" >> /var/www/html/calldb.php
-  echo "\$conn = new mysqli('mydatabase.linuxacademy.internal', 'root', 'secret', 'test');" >> /var/www/html/calldb.php
+  echo "\$conn = new mysqli('database', 'root', 'secret', 'test');" >> /var/www/html/calldb.php
   echo "\$sql = 'SELECT * FROM mytable'; " >> /var/www/html/calldb.php
   echo "\$result = \$conn->query(\$sql); " >>  /var/www/html/calldb.php
   echo "while(\$row = \$result->fetch_assoc()) { echo 'the value is: ' . \$row['mycol'] ;} " >> /var/www/html/calldb.php
