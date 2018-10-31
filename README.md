@@ -8,12 +8,9 @@ The main point of this exercise was to prove the template would work before conv
 
 The cost of this infrastructure is measured in single dollars, especially when almost immediately destroyed:
 
-<<<<<<< HEAD
 For simplicity I have hardcoded certain values but these can obviously be changed to secrets, 
 environment variables or entered on the terraform command lines.
 
-=======
->>>>>>> 513e1b6f03e118bb70517ca9f3f353fe6cd4f92a
 	The MySQL db user and password is hardcoded in Dev2Main.tf
 	The MySQL db user password is hardcoded in TOPvars.tf 
 
@@ -26,11 +23,7 @@ The terraform commands to run the scripts are:
 	terraform delete -var-file="<location and name of your secrets file>.auto.tfvars"
 
 where <location and name of your secrets file>.auto.tfvars is similar to the following:
-<<<<<<< HEAD
 
-=======
-	
->>>>>>> 513e1b6f03e118bb70517ca9f3f353fe6cd4f92a
 	#MySecretKeys.auto.tfvars
 	access_key = "<your AWS access key"
 	secret_key = "<your AWS secret key>"
