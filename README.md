@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # AWS-Web-and-EC2-MySQL-db-in-one-terraform-template
 AWS Web and EC2 MySQL db in one terraform template
 
@@ -58,4 +57,3 @@ where <location and name of your secrets file>.auto.tfvars is similar to the fol
 	#MySecretKeys.auto.tfvars
 	access_key = "<your AWS access key"
 	secret_key = "<your AWS secret key>"
->>>>>>> 4cf8f1bff5475f49f8c4e53b611239fd946e1617
