@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #!/bin/bash
 # CentOS Linux release 7.5.1804 (Core)
 sudo yum update -y
@@ -147,6 +146,3 @@ cat > mydb2.php <<EOF
 EOF
 sudo cp mydb2.php /var/www/html/mydb2.php
 
-
-
->>>>>>> 4cf8f1bff5475f49f8c4e53b611239fd946e1617
