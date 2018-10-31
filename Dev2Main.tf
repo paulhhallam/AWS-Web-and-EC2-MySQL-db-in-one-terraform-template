@@ -1,5 +1,5 @@
 #
-# Test by going to webhost://mydb.php
+# Test by going to webhost://mydb.php 
 #
 provider "aws" {
   region     = "${var.region}"
