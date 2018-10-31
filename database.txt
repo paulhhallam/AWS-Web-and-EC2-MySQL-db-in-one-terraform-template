@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 #!/bin/bash
 cat > mydb.php <<EOF
 <?php
@@ -101,4 +101,3 @@ sudo mysql -u root -e "flush privileges;"
 sudo mysql -u root -e "set password for 'root'@'localhost' = PASSWORD('kjh865LJHG98[[76');" 
 
 #ALTER user root IDENTIFIED BY 'kjh865LJHG98[[76';
->>>>>>> 4cf8f1bff5475f49f8c4e53b611239fd946e1617
