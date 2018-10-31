@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #
 # Test by going to webhost://mydb.php 
 #
@@ -478,4 +477,4 @@ resource "aws_vpc" "DevEc2DbVpc" {
 	Environment = "${var.environment}"
   }
 }
->>>>>>> 4cf8f1bff5475f49f8c4e53b611239fd946e1617
+
