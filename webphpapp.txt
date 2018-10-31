@@ -1,0 +1,74 @@
+#!/bin/bash
+# CentOS Linux release 7.5.1804 (Core)
+sudo yum update -y
+sudo yum install -y php php-pear php-mysql
+sudo systemctl start httpd
+sudo chkconfig httpd on
+sudo setsebool -P httpd_can_network_connect_db 1
+#
+# uncomment include_path = ".:/php/includes" in /etc/php.ini
+#
+# add the following to /etc/httpd/conf/httpd.conf
+#LoadModule php5_module "/usr/lib64/php"
+#AddType application/x-httpd-php .php
+#
+#
+#
+cat > mydb.php <<EOF
+<?php
+\$servername = "database";
+\$username = "phh";
+\$password = "kjh865LJHG98[[76";
+\$dbname = "test";
+// Create connection
+\$conn = new mysqli(\$servername, \$username, \$password, \$dbname);
+// Check connection
+if (\$conn->connect_error) {
+    die("Connection failed: " . \$conn->connect_error);
+}
+
+\$sql = "SELECT mycol FROM mytable";
+\$result = \$conn->query(\$sql);
+
+if (\$result->num_rows > 0) {
+    // output data of each row
+    while(\$row = \$result->fetch_assoc()) {
+        echo "Mycol: " . \$row["mycol"]. "<br>";
+    }
+} else {
+    echo "0 results";
+}
+\$conn->close();
+?>
+EOF
+sudo cp mydb.php /var/www/html/mydb.php
+#
+#
+#
+# install php
+# sudo apt-get install libapache2-mod-php7.0
+# sudo nano /etc/apache2/apache2.conf
+# <FilesMatch \.php$>
+# SetHandler application/x-httpd-php
+# </FilesMatch>
+# sudo a2dismod mpm_event && sudo a2enmod mpm_prefork && sudo a2enmod php7.0
+#
+# https://www.rootusers.com/how-to-setup-lamp-web-server-with-centos-7/
+
+cat > mydb2.php <<EOF
+<html>
+<head>
+<title>MYDB PHP Page</title>
+</head>
+<body>
+<h1>first line</h1>
+<h2>Second Line</h2>
+<?php phpinfo(); ?>
+<?php echo '<p>Hello World</p>'; ?>
+</body>
+</html>
+EOF
+sudo cp mydb2.php /var/www/html/mydb2.php
+
+
+
