@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 variable "region" {
 # NV
   default = "us-east-1"
@@ -154,4 +153,3 @@ variable "environment" {
   default = "TFP"
   }
 
->>>>>>> 4cf8f1bff5475f49f8c4e53b611239fd946e1617
