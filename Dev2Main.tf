@@ -132,6 +132,9 @@ resource "aws_nat_gateway" "PublicAZA" {
   allocation_id = "${aws_eip.forNat.id}"
   subnet_id = "${aws_subnet.PublicAZA.id}"
   depends_on = ["aws_internet_gateway.gw"]
+  tags {
+        Name = "DEVv2"
+  }
 }
 
 resource "aws_subnet" "PublicAZA" {
