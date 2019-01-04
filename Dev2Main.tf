@@ -14,6 +14,9 @@ resource "aws_instance" "database" {
   subnet_id = "${aws_subnet.PrivateAZA.id}"
   vpc_security_group_ids = ["${aws_security_group.database.id}"]
   key_name = "${var.key_name}"
+  root_block_device {
+	  delete_on_termination = true
+  }
   tags {
     Name = "database"
 	Environment = "${var.environment}"
@@ -28,6 +31,9 @@ resource "aws_instance" "webphpapp" {
   subnet_id = "${aws_subnet.PublicAZA.id}"
   vpc_security_group_ids = ["${aws_security_group.FrontEnd.id}"]
   key_name = "${var.key_name}"
+  root_block_device {
+	  delete_on_termination = true
+	  }
   tags {
     Name = "phpapp"
 	Environment = "${var.environment}"
